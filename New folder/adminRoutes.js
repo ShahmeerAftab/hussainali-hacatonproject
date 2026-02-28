@@ -3,7 +3,7 @@ import User from "../models/User.js";
 
 const router = express.Router();
 
-// API: Naya Doctor add karne ke liye
+
 router.post("/add-doctor", async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -29,7 +29,7 @@ router.post("/add-doctor", async (req, res) => {
   }
 });
 
-// API: Admin Dashboard Stats
+
 router.get("/stats", async (req, res) => {
   try {
     const doctorCount = await User.countDocuments({ role: "doctor" });
@@ -45,5 +45,6 @@ router.get("/stats", async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
+
 
 export default router;
